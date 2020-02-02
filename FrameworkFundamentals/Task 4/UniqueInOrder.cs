@@ -1,23 +1,25 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace FrameworkFundamentals.Task_4
 {
     public class UniqueInOrder
     {
-        public static List<T> Compose<T>(List<T> list)
-        {
-            for(int i = 1; i < list.Count - 1; i++)
+        public static IEnumerable<T> Compose<T>(IEnumerable<T> list)
+        { 
+            var array = list.ToList();
+            
+            for(int i = 1; i < array.Count - 1; i++)
             {
-                if(list[i].Equals(list[i+1]) || list[i].Equals(list[i-1]))
+                if(array[i].Equals(array[i+1]) || array[i].Equals(array[i-1]))
                 {
-                    list.RemoveAt(i);
+                    array.RemoveAt(i);
                 }
             }
 
-            return list;
+            return array;
        
         }
 

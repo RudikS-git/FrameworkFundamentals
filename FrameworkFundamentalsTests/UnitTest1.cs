@@ -107,6 +107,22 @@ namespace FrameworkFundamentalsTests
             Assert.AreEqual(UniqueInOrder.Compose(list), listExpected);
         }
 
+        static public IEnumerable<TestCaseData> combination_UniqueInOrderHashSettests()
+        {
+            yield return new TestCaseData(new HashSet<int> { 1, 1, 2, 3, 2 }, new HashSet<int> { 1, 2, 3, 2 }).SetName("[UniqueHashSetFormat] test 1");
+
+            yield return new TestCaseData(new HashSet<double> { 1.1, 2.2, 2.2, 3.3 }, new HashSet<double> { 1.1, 2.2, 3.3 }).SetName("[UniqueHashSetFormat] test 2");
+
+            yield return new TestCaseData(new HashSet<int> { 1, 1, 2, 1, 3, 4, 3 }, new HashSet<int> { 1, 2, 1, 3, 4, 3 }).SetName("[UniqueHashSetFormat] test 3");
+
+        }
+
+        [TestCaseSource("combination_UniqueInOrderHashSettests")]
+        public void UniqueInOrderHashSetTests<T>(HashSet<T> list, HashSet<T> listExpected)
+        {
+            Assert.AreEqual(UniqueInOrder.Compose(list), listExpected);
+        }
+
         [TestCase("The greatest victory is that which requires no battle", "battle no requires which that is victory greatest The")]
         public void SentenceTests(string text, string strExpected)
         {
