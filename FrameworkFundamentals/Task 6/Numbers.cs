@@ -10,7 +10,7 @@ namespace FrameworkFundamentals.Task_6
             {
                 return (int.Parse(firstNum) + int.Parse(secondNum)).ToString();
             }
-            catch(Exception exception)
+            catch(FormatException exception)
             {
                 throw new ArgumentException(exception.ToString());
             }
